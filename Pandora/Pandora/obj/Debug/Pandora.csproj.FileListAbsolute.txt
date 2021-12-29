@@ -110,3 +110,4 @@ C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pand
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddIssubscribedTocustomer.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddMembershipType.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.PopulateMemebershipTypes.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.ApplyAnnotationsToCustomerName.resources
