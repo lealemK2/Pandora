@@ -107,3 +107,6 @@ C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pand
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.pdb
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.InitialModel.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.csproj.GenerateResource.cache
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddIssubscribedTocustomer.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddMembershipType.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.PopulateMemebershipTypes.resources
