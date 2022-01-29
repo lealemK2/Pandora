@@ -117,3 +117,7 @@ C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pand
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.SetNameOfMembershipTypes.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddBirthdateToCustomer.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddBirthdateToCustomer1.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddMovie.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddGenre.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.Genres.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.PopulateMovies.resources
