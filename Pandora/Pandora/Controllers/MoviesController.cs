@@ -25,9 +25,12 @@ namespace Pandora.Controllers
         public ActionResult Index()
         {
             var movies = _context.Movies.Include(m => m.Genre).ToList();
-            return View(movies);
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List",movies);
+            return View("ReadOnlyList",movies);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)] 
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -38,6 +41,8 @@ namespace Pandora.Controllers
             return View("MovieForm", viewModel);
         }
 
+
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -85,6 +90,7 @@ namespace Pandora.Controllers
          
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
@@ -109,9 +115,10 @@ namespace Pandora.Controllers
                 movieInDb.ReleaseDate = movie.ReleaseDate;
             }
             _context.SaveChanges();  
-            return RedirectToAction("Index", "Movies");
+            return RedirectToAction("List", "Movies");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Delete(int Id)
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == Id);
@@ -121,7 +128,7 @@ namespace Pandora.Controllers
 
             _context.Movies.Remove(movie);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Movies");
+            return RedirectToAction("List", "Movies");
         }
 
     }

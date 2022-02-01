@@ -121,3 +121,5 @@ C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pand
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddGenre.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.Genres.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.PopulateMovies.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.SeedUsers.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddDrivingLicenseToApplicationUser.resources

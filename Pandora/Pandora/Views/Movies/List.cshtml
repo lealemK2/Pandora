@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Pandora.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+}
+
+
+<h2>Movies</h2>
+
+@Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
+
+<table id="movies" class=" table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movie &nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by name</text></th>
+            <th>Genre &nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by genre</text></th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+            <td>@movie.Genre.Name</td>
+            <td>
+                <button data-movie-id="@movie.Id" class="btn-link js-delete">Delete</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table= $("#movies").DataTable();
+            $("#movies .js-delete").on("click", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this Movie?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/Movies/Delete/" + $(button).attr("data-movie-id"),
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+
+                });
+
+            });
+        });
+    </script>
+}

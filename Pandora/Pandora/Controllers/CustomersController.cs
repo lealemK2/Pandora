@@ -9,11 +9,13 @@ using Pandora.ViewModels;
 
 namespace Pandora.Controllers 
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
 
-        public CustomersController()
+
+        public CustomersController() 
         {
             _context = new ApplicationDbContext();
         }
@@ -24,6 +26,7 @@ namespace Pandora.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageCustomers)]
         public ActionResult Save(Customer customer)
         {
             if(!ModelState.IsValid)
@@ -48,12 +51,18 @@ namespace Pandora.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
         }
-        // GET: Customers
+        
+
+
         public ActionResult Index()
         {
             var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
-            return View(customers);
+            if (User.IsInRole(RoleName.CanManageCustomers))
+                return View("Index", customers);
+            return View("ReadOnlyList", customers);
         }
+
+        [Authorize(Roles = RoleName.CanManageCustomers)]
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -75,6 +84,7 @@ namespace Pandora.Controllers
             return View(customer);
         }
 
+        [Authorize(Roles = RoleName.CanManageCustomers)]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
@@ -88,6 +98,7 @@ namespace Pandora.Controllers
             return View("CustomerForm", viewModel);
         }
 
+        [Authorize(Roles = RoleName.CanManageCustomers)]
         public ActionResult Delete(int Id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == Id);
