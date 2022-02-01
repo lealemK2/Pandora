@@ -111,5 +111,18 @@ namespace Pandora.Controllers
             _context.SaveChanges();  
             return RedirectToAction("Index", "Movies");
         }
+
+        public ActionResult Delete(int Id)
+        {
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == Id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
+        }
+
     }
 }

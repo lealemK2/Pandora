@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using Pandora.ViewModels;
 
-namespace Pandora.Controllers
+namespace Pandora.Controllers 
 {
     public class CustomersController : Controller
     {
@@ -88,7 +88,17 @@ namespace Pandora.Controllers
             return View("CustomerForm", viewModel);
         }
 
+        public ActionResult Delete(int Id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == Id);
 
+            if (customer == null)
+              return HttpNotFound();
+
+            _context.Customers.Remove(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
 
     }
 }

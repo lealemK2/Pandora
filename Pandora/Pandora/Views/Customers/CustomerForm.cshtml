@@ -3,7 +3,7 @@
     ViewBag.Title = "CustomerForm";
 }
 
-<h2>@Model.Title</h2>
+<h2>@Model.Title</h2> 
 @using (@Html.BeginForm("Save", "Customers"))
 {
     @Html.ValidationSummary(true, "Please fix the following errors.")
