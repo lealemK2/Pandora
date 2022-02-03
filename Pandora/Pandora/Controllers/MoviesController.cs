@@ -115,7 +115,7 @@ namespace Pandora.Controllers
                 movieInDb.ReleaseDate = movie.ReleaseDate;
             }
             _context.SaveChanges();  
-            return RedirectToAction("List", "Movies");
+            return RedirectToAction("Index", "Movies");
         }
 
         [Authorize(Roles = RoleName.CanManageMovies)]
@@ -128,7 +128,7 @@ namespace Pandora.Controllers
 
             _context.Movies.Remove(movie);
             _context.SaveChanges();
-            return RedirectToAction("List", "Movies");
+            return RedirectToAction("Index", "Movies");
         }
 
     }

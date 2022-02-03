@@ -10,10 +10,12 @@ namespace Pandora
         {
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/bootstrap.js",
                         "~/scripts/bootbox.js",
                         "~/scripts/datatables/jquery.datatables.js",
                         "~/scripts/datatables/jquery.bootstrap.js",
-                      "~/Scripts/bootstrap.js"));
+                        "~/scripts/myjqui/jquery-ui.js",
+                      "~/scripts/typeahead.bundle.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -26,6 +28,8 @@ namespace Pandora
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/datatables/css/datatables.css",
+                      "~/content/typeahead.css",
+                      "~/content/myjqui/jquery-ui.css",
                       "~/Content/site.css"));
         }
     }

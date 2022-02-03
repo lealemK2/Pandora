@@ -38,6 +38,7 @@ namespace Pandora.Controllers
                 };
                 return View("CustomerForm",viewModel);
             }
+
             if (customer.Id==0)
                 _context.Customers.Add(customer);
             else

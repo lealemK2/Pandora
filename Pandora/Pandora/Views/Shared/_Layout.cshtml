@@ -7,16 +7,17 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-</head>
+</head> 
 <body>
     @Html.Partial("_NavBar")
-    <div class="container body-content">
+    <div class="container body-content"> 
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Pandora</p>
         </footer>
     </div>
+
 
     
     @Scripts.Render("~/bundles/lib")

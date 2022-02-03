@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using Pandora.Dto;
+using AutoMapper;
 
 namespace Pandora.Models
 {
@@ -10,6 +12,8 @@ namespace Pandora.Models
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+
+
             var customer = (Customer)validationContext.ObjectInstance;
 
             if (customer.MembershipTypeId == MembershipType.Unknown ||

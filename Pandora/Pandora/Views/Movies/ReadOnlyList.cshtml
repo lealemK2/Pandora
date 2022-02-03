@@ -12,6 +12,7 @@
         <tr>
             <th>Movie &nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by name</text></th>
             <th>Genre&nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by genre</text></th>
+            <th>Release Date&nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by Release date</text></th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
         <tr>
             <td>@movie.Name </td>
             <td>@movie.Genre.Name</td>
+            <td>@movie.ReleaseDate.ToString("d MMM yyyy")</td>
         </tr>
         }
     </tbody>

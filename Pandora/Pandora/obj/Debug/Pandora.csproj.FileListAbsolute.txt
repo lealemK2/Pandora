@@ -123,3 +123,16 @@ C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pand
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.PopulateMovies.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.SeedUsers.resources
 C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddDrivingLicenseToApplicationUser.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddImageClass.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddImageClass1.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.DeleteImageClass.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\System.Net.Http.Formatting.dll
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\System.Web.Http.dll
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\System.Web.Http.WebHost.dll
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\System.Net.Http.Formatting.xml
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\System.Web.Http.xml
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\System.Web.Http.WebHost.xml
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\AutoMapper.dll
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\bin\AutoMapper.xml
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddRentalClass.resources
+C:\Users\Lealem Kifle\Desktop\Pandora prj\Pandora\Pandora\Pandora\obj\Debug\Pandora.Migrations.AddNumberAvailableToMovie.resources

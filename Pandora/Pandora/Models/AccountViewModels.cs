@@ -66,7 +66,7 @@ namespace Pandora.Models
     {
         [Required]
         [StringLength(255)]
-        [Display(Name ="Driving License")]
+        [Display(Name ="Id number")]
         public string  DrivingLicense { get; set; }
 
         [Required]
