@@ -15,6 +15,7 @@ namespace Pandora
                         "~/scripts/datatables/jquery.datatables.js",
                         "~/scripts/datatables/jquery.bootstrap.js",
                         "~/scripts/myjqui/jquery-ui.js",
+                        "~/scripts/toastr.js",
                       "~/scripts/typeahead.bundle.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -30,6 +31,7 @@ namespace Pandora
                       "~/Content/datatables/css/datatables.css",
                       "~/content/typeahead.css",
                       "~/content/myjqui/jquery-ui.css",
+                      "~/content/toastr.css",
                       "~/Content/site.css"));
         }
     }

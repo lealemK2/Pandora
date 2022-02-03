@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Pandora.Models.Rental>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Rentals</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any Rentals yet.</p>
+}
+else
+{
+    <table id="rentals" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer &nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by name</text></th>
+                <th>Movie &nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by name</text></th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rental in Model)
+            {
+                <tr>
+                    <td>@rental.Customer.Name </td>
+                    <td>@rental.Movie.Name </td>
+                    <td>
+                        <button data-rental-id="@rental.Id" class="btn-link js-delete">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#rentals").DataTable();
+
+            $("#rentals .js-delete").on("click", function () {
+                var button = $(this);
+                alert("clicked");
+                bootbox.confirm("Are you sure you want to delete this Rental?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/Rentals/Delete/" + $(button).attr("data-rental-id"),
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+
+                });
+
+            });
+        });
+    </script>
+}

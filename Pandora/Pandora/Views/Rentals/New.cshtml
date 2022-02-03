@@ -1,0 +1,115 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Rental Form</h2>
+
+
+
+<form id="newRental">
+    <div class="form-group">
+        <label>Customer</label>
+        <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Movie</label>
+        <input id="movie" name="movie" data-rule-atLeastOneMovie="true" required type="text" value="" class="form-control" />     
+    </div>
+
+    <div class="row">
+        <div class="col-md-4-sm-4">
+            <ul id="movies" class="list-group"></ul>
+        </div>
+    </div>
+
+
+
+    <button class="btn btn-btn-primary">Submit</button>
+</form>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+    <script>
+
+
+        var vm = {
+            customerId: "",
+            movieIds: []
+        };
+        $.get("/api/customers", function (data, status) {
+            /*var vm = {};*/
+            var results = data.map(function (a) { return a.name; });
+            console.log(results);
+            $("#customer").autocomplete({
+                source: results,
+                select: function (e, ui) {
+                    console.log(data);
+                    var selectedName = ui.item.value;
+                    var selectedId = results.indexOf(selectedName);
+                    vm.customerId = data[selectedId].id;
+                }
+            }, {
+                autoFocus: true,
+                minLength: 2
+            });
+        });
+
+        $.get("/api/movies/?available=\"onlyAvailable\" ", function (data, status) {
+            var results = data.map(function (a) { return a.name; });
+            console.log(results);
+            $("#movie").autocomplete({
+                source: results,
+                select: function (e, ui) {
+                    console.log(data);
+                    var selectedName = ui.item.value;
+                    var selectedId = results.indexOf(selectedName);
+                    vm.movieIds.push(data[selectedId].id);
+                    $("#movies").append("<li class='list-group-item'>" + selectedName + "</li>");
+                    document.getElementById('movie').value = '';
+                }
+            }, {
+                autoFocus: true,
+                minLength: 2
+            });
+        });
+
+        $.validator.addMethod("validCustomer", function () {
+            return vm.customerId && vm.customerId !== 0;
+        }, "please select a valid customer. ");
+
+        $.validator.addMethod("atLeastOneMovie", function () {
+            return vm.movieIds.length > 0;
+        }, "please select at least one movie. ");
+
+        $("#newRental").validate({
+            submitHandler: function () {
+                $.ajax({
+                    url: "/api/newRentals",
+                    method: "post",
+                    data: vm
+                })
+                    .done(function () {
+                        console.log("done");
+                        toastr.success("Rentals successfully recorded.");
+                        $("#movies").empty();
+                        document.getElementById('movie').value = '';
+                        document.getElementById('customer').value = '';
+                        vm = {
+                            customerId: "",
+                            movieIds: []
+                        };
+
+                        validator.resetForm();
+                    })
+                    .fail(function () {
+                        toastr.error("Something an expected happended.");
+
+                    });
+                return false;
+            }
+        });
+
+    </script>
+}

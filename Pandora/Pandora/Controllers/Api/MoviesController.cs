@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Data.Entity;
 using System.Web.Http;
 
 namespace Pandora.Controllers.Api
@@ -19,9 +20,14 @@ namespace Pandora.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MovieDto> GetMovies(string available=null)
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            if(String.IsNullOrEmpty(available))//if search is for all movies includin the unavailables
+                return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+
+
+            var moviesQuery = _context.Movies.Include(m => m.Genre).Where(m => m.NumberAvailable > 0);
+            return moviesQuery.ToList().Select(Mapper.Map<Movie, MovieDto>);
         }
 
         public IHttpActionResult GetMovie(int id)

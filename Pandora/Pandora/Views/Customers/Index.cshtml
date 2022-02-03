@@ -4,7 +4,7 @@
 }
 
 <h2>Customers</h2>
-
+ 
 
 @if (!Model.Any())
 {
@@ -23,8 +23,8 @@ else
         </thead>
         <tbody>
             @foreach (var customer in Model)
-            {
-                <tr>
+            { 
+                <tr> 
                     <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td> 
                     <td>@customer.MembershipType.Name</td>
                     <td>
