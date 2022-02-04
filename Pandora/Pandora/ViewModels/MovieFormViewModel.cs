@@ -28,6 +28,9 @@ namespace Pandora.ViewModels
         [Range(1, 20)]
         [Required]
         public byte? NumberInStock { get; set; }
+        [Display(Name = "Upload file")]
+        public string ImagePath { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
 
 
 

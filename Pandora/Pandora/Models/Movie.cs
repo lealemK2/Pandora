@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace Pandora.Models
@@ -31,5 +32,13 @@ namespace Pandora.Models
         [Range(1,20)]
         public byte NumberInStock { get; set; }
         public byte NumberAvailable { get; set; }
+
+        [Display(Name = "Upload file")]
+        public string  ImagePath { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase  ImageFile { get; set; }
+
+
     }
 }

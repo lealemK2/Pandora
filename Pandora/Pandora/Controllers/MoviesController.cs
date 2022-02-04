@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Pandora.Migrations;
+using System.IO;
 
 namespace Pandora.Controllers
 {
@@ -103,6 +104,21 @@ namespace Pandora.Controllers
             }
             if (movie.Id == 0)
             {
+                if (movie.ImageFile != null) 
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(movie.ImageFile.FileName);
+                    string extension = Path.GetExtension(movie.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    movie.ImagePath = "~/content/uploadedimages/"+fileName;
+                    fileName = Path.Combine(Server.MapPath("~/content/uploadedimages/"), fileName);
+                    movie.ImageFile.SaveAs(fileName);
+                    ModelState.Clear();
+                }
+                else
+                {
+                    movie.ImagePath = "~/content/uploadedimages/noimage5.png";
+                }
+
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
             }
@@ -113,6 +129,18 @@ namespace Pandora.Controllers
                 movieInDb.GenreId = movie.GenreId;
                 movieInDb.NumberInStock = movie.NumberInStock;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
+                if (movie.ImageFile!=null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(movie.ImageFile.FileName);
+                    string extension = Path.GetExtension(movie.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    movie.ImagePath = "~/content/uploadedimages/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/content/uploadedimages/"), fileName);
+                    movie.ImageFile.SaveAs(fileName);
+                    movieInDb.ImagePath = movie.ImagePath;
+                    movieInDb.ImageFile = movie.ImageFile;
+                    ModelState.Clear();
+                }
             }
             _context.SaveChanges();  
             return RedirectToAction("Index", "Movies");

@@ -5,7 +5,7 @@
 }
 
 <h2>@Model.Title</h2>
-@using (@Html.BeginForm("Save", "Movies"))
+@using (@Html.BeginForm("Save", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
@@ -31,6 +31,29 @@
         @Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.NumberInStock)
     </div>
+
+
+    <div id="displayPicture-wrapper">
+
+
+        @*@if (Model.ImagePath.IsEmpty())
+        {
+            <img src="~/content/uploadedimages/noimage5.png" id="displayPicture" style="width: auto; height: 300px" />
+        }
+        else
+        {
+            <img src=@Url.Content(Model.ImagePath) id="displayPicture" style="width: auto; height: 200px" />
+        }*@
+
+        <img src="" hidden id="displayPicture" style="width: auto; height: 400px" />
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageFile)
+        @Html.TextBoxFor(m => m.ImageFile, new { type = "file", id = "image", name = "ImageFile" })
+    </div>
+
+
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
@@ -38,5 +61,19 @@
 
 @section scripts
 {
+
+    <script>
+        $("#image").on("change", function (e) {
+            loadFile(e);
+        })
+        var displayPicture = document.getElementById("displayPicture");
+        var loadFile = function (event) {
+            displayPicture.hidden = false;
+            displayPicture.src = URL.createObjectURL(event.target.files[0]);
+            displayPicture.onload = function () {
+                URL.revokeObjectURL(displayPicture.src)
+            }
+        };
+    </script>
     @Scripts.Render("~/bundles/jqueryval")
 }

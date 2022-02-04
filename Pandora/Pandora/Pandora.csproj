@@ -284,6 +284,14 @@
     <Compile Include="Migrations\202202022007006_AddNumberAvailableToMovie.Designer.cs">
       <DependentUpon>202202022007006_AddNumberAvailableToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202040805370_AddImageToMovie.cs" />
+    <Compile Include="Migrations\202202040805370_AddImageToMovie.Designer.cs">
+      <DependentUpon>202202040805370_AddImageToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202041106063_AddImageFileAndImagePathToMovie.cs" />
+    <Compile Include="Migrations\202202041106063_AddImageFileAndImagePathToMovie.Designer.cs">
+      <DependentUpon>202202041106063_AddImageFileAndImagePathToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -556,6 +564,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Content\uploadedimages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -636,6 +645,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202022007006_AddNumberAvailableToMovie.resx">
       <DependentUpon>202202022007006_AddNumberAvailableToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202040805370_AddImageToMovie.resx">
+      <DependentUpon>202202040805370_AddImageToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202041106063_AddImageFileAndImagePathToMovie.resx">
+      <DependentUpon>202202041106063_AddImageFileAndImagePathToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

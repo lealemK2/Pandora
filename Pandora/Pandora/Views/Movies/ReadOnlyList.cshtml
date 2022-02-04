@@ -11,6 +11,7 @@
     <thead>
         <tr>
             <th>Movie &nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by name</text></th>
+            <th>Movie Poster&nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by name</text></th>
             <th>Genre&nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by genre</text></th>
             <th>Release Date&nbsp;&nbsp;&nbsp;&nbsp;<text style="color: lightgray;">sort by Release date</text></th>
         </tr>
@@ -20,6 +21,16 @@
         {
         <tr>
             <td>@movie.Name </td>
+            <td>
+                @if (movie.ImagePath.IsEmpty())
+                {
+                    <img src="~/content/uploadedimages/noimage5.png" style="width: auto; height: 300px" />
+                }
+                else
+                {
+                    <img src=@Url.Content(movie.ImagePath) style="width: auto; height: 300px" />
+                }
+            </td>
             <td>@movie.Genre.Name</td>
             <td>@movie.ReleaseDate.ToString("d MMM yyyy")</td>
         </tr>
