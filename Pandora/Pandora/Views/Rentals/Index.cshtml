@@ -42,7 +42,6 @@ else
 
             $("#rentals .js-delete").on("click", function () {
                 var button = $(this);
-                alert("clicked");
                 bootbox.confirm("Are you sure you want to delete this Rental?", function (result) {
                     if (result) {
                         $.ajax({

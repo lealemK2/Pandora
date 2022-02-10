@@ -26,7 +26,6 @@ namespace Pandora.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = RoleName.CanManageCustomers)]
         public ActionResult Save(Customer customer)
         {
             if(!ModelState.IsValid)
@@ -58,12 +57,10 @@ namespace Pandora.Controllers
         public ActionResult Index()
         {
             var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
-            if (User.IsInRole(RoleName.CanManageCustomers))
-                return View("Index", customers);
-            return View("ReadOnlyList", customers);
+            return View("Index", customers);
         }
 
-        [Authorize(Roles = RoleName.CanManageCustomers)]
+
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -85,7 +82,7 @@ namespace Pandora.Controllers
             return View(customer);
         }
 
-        [Authorize(Roles = RoleName.CanManageCustomers)]
+
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
@@ -99,7 +96,7 @@ namespace Pandora.Controllers
             return View("CustomerForm", viewModel);
         }
 
-        [Authorize(Roles = RoleName.CanManageCustomers)]
+
         public ActionResult Delete(int Id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == Id);

@@ -23,6 +23,7 @@ namespace Pandora.Controllers
             _context.Dispose();
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var movies = _context.Movies.Include(m => m.Genre).ToList();
@@ -56,38 +57,7 @@ namespace Pandora.Controllers
             };
             return View("MovieForm", viewModel);
         }
-
-        public ActionResult Details(int id)//Could be deleted not by mosh tho
-        {
-            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
-            if (movie == null)
-                return HttpNotFound();
-            return View(movie);
-        }
-        public ActionResult Random()
-        {
-
-            var movie = new Movie() { Name="Shrek"};
-            var customers = new List<Customer>
-            {
-                new Customer {Name="Customer 1"},
-                new Customer {Name="Customer 2"}
-            };
-
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-
-            return View(viewModel);
-        }
         
-        [Route("movies/releases/{year}/{month}")]
-        public ActionResult ByReleaseDate(int year, int month)
-        {
-            return Content(year + "/" + month);
-        }
          
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -120,6 +90,7 @@ namespace Pandora.Controllers
                 }
 
                 movie.DateAdded = DateTime.Now;
+                movie.NumberAvailable = movie.NumberInStock;
                 _context.Movies.Add(movie);
             }
             else

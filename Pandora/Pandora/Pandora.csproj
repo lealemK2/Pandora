@@ -292,6 +292,14 @@
     <Compile Include="Migrations\202202041106063_AddImageFileAndImagePathToMovie.Designer.cs">
       <DependentUpon>202202041106063_AddImageFileAndImagePathToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202091915008_AddAdminsModel.cs" />
+    <Compile Include="Migrations\202202091915008_AddAdminsModel.Designer.cs">
+      <DependentUpon>202202091915008_AddAdminsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202091918047_deleteAdmins.cs" />
+    <Compile Include="Migrations\202202091918047_deleteAdmins.Designer.cs">
+      <DependentUpon>202202091918047_deleteAdmins.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -307,7 +315,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -651,6 +658,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202041106063_AddImageFileAndImagePathToMovie.resx">
       <DependentUpon>202202041106063_AddImageFileAndImagePathToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202091915008_AddAdminsModel.resx">
+      <DependentUpon>202202091915008_AddAdminsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202091918047_deleteAdmins.resx">
+      <DependentUpon>202202091918047_deleteAdmins.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

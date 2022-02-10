@@ -39,7 +39,6 @@
             movieIds: []
         };
         $.get("/api/customers", function (data, status) {
-            /*var vm = {};*/
             var results = data.map(function (a) { return a.name; });
             console.log(results);
             $("#customer").autocomplete({
@@ -57,8 +56,10 @@
         });
 
         $.get("/api/movies/?available=\"onlyAvailable\" ", function (data, status) {
+
+            console.log("Data Movies result: "+data);
             var results = data.map(function (a) { return a.name; });
-            console.log(results);
+            console.log("Movies result: " + results);
             $("#movie").autocomplete({
                 source: results,
                 select: function (e, ui) {
